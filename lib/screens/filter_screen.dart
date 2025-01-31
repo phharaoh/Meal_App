@@ -1,5 +1,6 @@
+import 'favourt_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:meal_app/widget/main_drawer.dart';
+import 'package:meal_app/screens/categories_screen.dart';
 
 class FilterScreen extends StatelessWidget {
   const FilterScreen({super.key});
@@ -7,18 +8,110 @@ class FilterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Filter",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 30,
-            fontStyle: FontStyle.italic,
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+          title: const Text(
+            " Filter",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+              fontStyle: FontStyle.italic,
+            ),
           ),
+          backgroundColor: Colors.deepPurple,
         ),
-        backgroundColor: Colors.purple,
-      ),
-      drawer: const MainDrawer(),
-    );
+        drawer: Drawer(
+          backgroundColor: Colors.black54,
+          child: Column(
+            children: [
+              const DrawerHeader(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [
+                  Colors.purple,
+                  Colors.deepPurple,
+                ])),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.soup_kitchen_outlined,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "Cooking Up...",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                        builder: (ctx) => const CategoriesScreen()),
+                  );
+                },
+                leading: const Text(
+                  "Meal",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 35,
+                  ),
+                ),
+                trailing: const Icon(
+                  Icons.arrow_circle_right_outlined,
+                  color: Colors.white,
+                  size: 50,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                leading: const Text(
+                  "Filter",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 35,
+                  ),
+                ),
+                trailing: const Icon(
+                  Icons.arrow_circle_right_outlined,
+                  color: Colors.white,
+                  size: 50,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (ctx) => const FavourtScreen()),
+                  );
+                },
+                leading: const Text(
+                  "Favourite",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 35,
+                  ),
+                ),
+                trailing: const Icon(
+                  Icons.arrow_circle_right_outlined,
+                  color: Colors.white,
+                  size: 50,
+                ),
+              ),
+            ],
+          ),
+        ));
   }
 }

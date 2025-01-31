@@ -1,6 +1,8 @@
+import '../widget/main_drawer.dart';
 import '../data/dummy_data (1).dart';
 import 'package:flutter/material.dart';
 import '../widget/category_gred_item.dart';
+
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({super.key});
@@ -13,16 +15,17 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        // title: const Text(
-        //   " Category",
-        //   style: TextStyle(
-        //     color: Colors.white,
-        //     fontSize: 30,
-        //     fontStyle: FontStyle.italic,
-        //   ),
-        // ),
-        // backgroundColor: Colors.deepPurple,
+        title: const Text(
+          " Category",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 30,
+            fontStyle: FontStyle.italic,
+          ),
+        ),
+        backgroundColor: Colors.deepPurple,
       ),
       body: GridView(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -38,6 +41,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             ),
         ],
       ),
+      drawer: const MainDrawer(),
     );
   }
 }

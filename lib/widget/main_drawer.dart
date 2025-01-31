@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../screens/filter_screen.dart';
-
-// ignore_for_file: prefer_const_constructors
+import 'package:meal_app/screens/filter_screen.dart';
+import 'package:meal_app/screens/favourt_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -52,21 +51,47 @@ class MainDrawer extends StatelessWidget {
               size: 50,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           ListTile(
             onTap: () {
-             
+              Navigator.pop(context);
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (ctx) => const FilterScreen()),
+              );
             },
-            leading: Text(
+            leading: const Text(
               "Filter",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 35,
               ),
             ),
-            trailing: Icon(
+            trailing: const Icon(
+              Icons.arrow_circle_right_outlined,
+              color: Colors.white,
+              size: 50,
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          ListTile(
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (ctx) => const FavourtScreen()),
+              );
+            },
+            leading: const Text(
+              "Favourite",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 35,
+              ),
+            ),
+            trailing: const Icon(
               Icons.arrow_circle_right_outlined,
               color: Colors.white,
               size: 50,
